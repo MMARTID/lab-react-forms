@@ -16,30 +16,21 @@ function App() {
   const [program, setProgram] = useState('')
   const [graduationYear, setGraduationYear] = useState(2023)
   const [graduated, setGraduated] = useState(false)
-  
+ 
 
-  const handleNameChange = (e) => {
-    setFullName(e.target.value)
-    
-  }
-  const handleImageChange = (e) => {
-    setImage(e.target.value)
-  }
-  const handlePhoneChange = (e) => {
-    setPhone(e.target.value)
-  }
-  const handleEmailsChange = (e) => {
-    setEmails(e.target.value)
-  }
-  const handleProgramChange = (e) => {
-    setProgram(e.target.value)
-  }
-  const handleGraduationYearChange = (e) => {
-    setGraduationYear(e.target.value)
-  }
-  const handleGraductedChange = (e) => {
-    setGraduated(e.target.value)
-  }
+  const handleNameChange = (e) =>  setFullName(e.target.value)
+  
+  const handleImageChange = (e) =>  setImage(e.target.value)
+  
+  const handlePhoneChange = (e) =>  setPhone(e.target.value)
+  
+  const handleEmailsChange = (e) => setEmails(e.target.value)
+  
+  const handleProgramChange = (e) =>  setProgram(e.target.value)
+  
+  const handleGraduationYearChange = (e) =>  setGraduationYear(e.target.value)
+  
+  const handleGraductedChange = (e) =>  setGraduated(e.target.checked)
 
   return (
     <div className="App pt-20">
