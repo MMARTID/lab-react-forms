@@ -6,13 +6,13 @@ import StudentCard from "./components/StudentCard";
 
 import studentsData from "./assets/students.json";
 
-function App() {
+function App(props) {
   const [students, setStudents] = useState(studentsData);
 
   const [fullName, setFullName] = useState('')
   const [image, setImage] = useState('')
   const [phone, setPhone] = useState('')
-  const [emails, setEmails] = useState('')
+  const [email, setEmails] = useState('')
   const [program, setProgram] = useState('')
   const [graduationYear, setGraduationYear] = useState(2023)
   const [graduated, setGraduated] = useState(false)
@@ -32,12 +32,26 @@ function App() {
   
   const handleGraductedChange = (e) =>  setGraduated(e.target.checked)
 
+
+  const sumbitHandler = (e) => {
+    e.preventDefault()
+    const newStudent = {fullName, image, phone, email, program, graduationYear, graduated }
+    console.log(newStudent)
+    setStudents((prevStudents) => [...prevStudents, newStudent])
+    setFullName('')
+    setImage('')
+    setPhone('')
+    setEmails('')
+    setProgram('')
+    setGraduationYear(2023)
+    setGraduated(false)
+  }
   return (
     <div className="App pt-20">
       <Navbar />
 
       {/* FORM */}
-      <form>
+      <form onSubmit={sumbitHandler}>
         <span>Add a Student</span>
         <div>
           <label>
@@ -57,7 +71,7 @@ function App() {
 
           <label>
             Email
-            <input value={emails} name="email" type="email" placeholder="Email" onChange={handleEmailsChange}/>
+            <input value={email} name="email" type="email" placeholder="Email" onChange={handleEmailsChange}/>
           </label>
         </div>
 
